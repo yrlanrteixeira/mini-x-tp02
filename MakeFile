@@ -1,0 +1,24 @@
+CC=gcc
+CFLAGS=-Wall -O2
+LDFLAGS=-lws2_32
+SRC=$(wildcard src/*.c)
+OBJ=$(SRC:.c=.o)
+BIN=server client_send client_recv
+
+all: $(BIN)
+
+server: src/server.o src/utils.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+
+client_send: src/client_send.o src/utils.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+
+client_recv: src/client_recv.o src/utils.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+
+%.o: %.c include/common.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f src/*.o $(BIN)
+.PHONY: all clean
