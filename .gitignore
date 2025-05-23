@@ -1,0 +1,31 @@
+# Arquivos binários compilados
+server
+client_rx
+client_tx
+
+# Arquivos objeto
+*.o
+*.obj
+
+# Arquivos de dependência
+*.d
+
+# Arquivos de backup do editor
+*~
+*.swp
+*.swo
+.DS_Store
+
+# Arquivos temporários
+*.tmp
+*.log
+
+# Arquivos de IDE/editores
+.vscode/
+.idea/
+*.code-workspace
+
+# Outros
+core
+core.*
+vgcore.*
